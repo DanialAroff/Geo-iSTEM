@@ -1,0 +1,163 @@
+body {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 3fr;
+      grid-template-columns: 1fr 3fr;
+  height: 100vh;
+  font-size: 16px;
+  font-family: 'Roboto', sans-serif;
+  color: #191923;
+}
+
+#shape-maker {
+  background: #FAFBFC;
+  -webkit-box-shadow: 0 0 16px rgba(0, 0, 0, 0.12);
+          box-shadow: 0 0 16px rgba(0, 0, 0, 0.12);
+  min-height: 100%;
+  min-width: 280px;
+  max-width: 380px;
+  display: -ms-grid;
+  display: grid;
+  row-gap: 20px;
+  padding: 2em;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  overflow: scroll;
+}
+
+#shape-maker h1 {
+  font-weight: 600;
+  font-size: 1.3em;
+  margin-bottom: 1em;
+}
+
+#shape-maker .shapes-2d {
+  position: relative;
+  border-bottom: 1px solid #9b9b9b;
+  width: 100%;
+}
+
+#shape-maker .shapes-2d label {
+  font-weight: 500;
+}
+
+#shape-maker .shapes-2d select, #shape-maker .shapes-2d input {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  height: 25px;
+  margin: 10px 0;
+}
+
+#shape-maker .shapes-2d select {
+  outline: none;
+  width: 100%;
+  border-radius: 3px;
+}
+
+#shape-maker .shapes-2d select:focus {
+  border: 2px solid #F7CE21;
+}
+
+#shape-maker .shapes-2d button {
+  position: absolute;
+  bottom: 15px;
+  right: 0px;
+  border: none;
+  border-radius: 3px;
+  padding: 10px 20px;
+  background-color: #F7CE21;
+  cursor: pointer;
+  outline: none;
+  font-weight: 600;
+}
+
+#shape-maker .shapes-2d button:hover {
+  background-color: #fdcf04;
+  -webkit-box-shadow: 0 0 12px #ffd105;
+          box-shadow: 0 0 12px #ffd105;
+}
+
+#shape-maker .shapes-2d .shape-inputs {
+  margin: 10px 0;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 5fr 1fr 1fr;
+      grid-template-columns: 5fr 1fr 1fr;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: .9em;
+}
+
+#shape-maker .shapes-2d .shape-inputs label {
+  font-size: .95em;
+}
+
+#shape-maker .shapes-2d .shape-inputs input {
+  width: 40px;
+  font-size: 1em;
+  border: none;
+  border-bottom: 1px solid #191923;
+  background-color: #FAFBFC;
+  margin-left: auto;
+  outline: none;
+  text-align: right;
+}
+
+#shape-maker .shapes-2d .shape-inputs input:focus {
+  border-bottom: 2px solid #F7CE21;
+}
+
+#shape-maker .shapes-2d .shape-inputs span {
+  line-height: 40px;
+}
+
+#shape-maker .shapes-2d .unselected {
+  display: none;
+}
+
+main {
+  position: relative;
+  width: 100%;
+}
+
+main img {
+  width: 100%;
+  height: auto;
+  z-index: -10;
+  -o-object-fit: scale-down;
+     object-fit: scale-down;
+}
+
+.canvas {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 95%;
+  height: 90%;
+  -webkit-box-shadow: 0 0 16px rgba(0, 0, 0, 0.12);
+          box-shadow: 0 0 16px rgba(0, 0, 0, 0.12);
+  background-color: #fff;
+  overflow: hidden;
+}
+
+.oval {
+  height: 150px;
+  width: 110px;
+  background-color: #7bbdff;
+  border-radius: 50%;
+}
+
+.shape {
+  position: absolute;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  cursor: move;
+}
+
+.shape:active {
+  border: 3px solid #7dd6ff;
+}
+/*# sourceMappingURL=main.css.map */
