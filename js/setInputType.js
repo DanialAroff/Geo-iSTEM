@@ -13,5 +13,7 @@ function changeInputType() {
         document.getElementById('triangle-inputs').className = 'shape-inputs';
     } else if (get2DSelection() == 'circle') {
         document.getElementById('circle-inputs').className = 'shape-inputs';
+    } else if (get2DSelection() == 'oval') {
+        document.getElementById('oval-inputs').className = 'shape-inputs';
     }
 }

@@ -6,7 +6,7 @@
     <link rel="shortcut icon" href="assets/Icon3.png" type="image/x-icon">
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/main.css">
-
+    
     <title>Geo iSTEM</title>
 </head>
 <body>
@@ -14,7 +14,7 @@
         <section class="shapes-2d">
             <h1>Bentuk 2D</h1>
             <label for="senaraibentuk2D">Nama Bentuk 2 Dimensi</label>
-            <select name="senaraibentuk2D" id="shapes-2d-selector" onchange="changeInputType()">
+            <select name="senaraibentuk2D" id="shapes-2d-selector">
                 <option value="square" selected>Segi Empat Sama</option>
                 <option value="rectangle">Segi Empat Tepat</option>
                 <option value="triangle">Segi Tiga</option>
@@ -26,26 +26,6 @@
                 <option value="polygon">Poligon</option>
             </select>
 
-            <div id="square-inputs" class="shape-inputs">
-                <label for="square-length">Panjang Sisi Lurus:</label>
-                <input type="text" name="square-length" id="square-length">
-                <span class="unit-label">cm</span>
-            </div>
-
-            <div id="rectangle-inputs" class="shape-inputs unselected">
-                <label for="rectangle-length-1">Panjang Sisi Lurus 1:</label>
-                <input type="text" name="rectangle-length-1" id="rectangle-length-1">
-                <span class="unit-label">cm</span>
-                <label for="rectangle-length-2">Panjang Sisi Lurus 2:</label>
-                <input type="text" name="rectangle-length-2" id="rectangle-length-2">
-                <span class="unit-label">cm</span>
-            </div>
-
-            <div id="circle-inputs" class="shape-inputs">
-                <label for="circle-diameter">Diameter:</label>
-                <input type="text" name="circle-diameter" id="circle-diameter">
-                <span class="unit-label">cm</span>
-            </div>
             
             <button id="button-2d" onclick="createShape(get2DSelection())">Cipta Bentuk</button> 
         </section>
@@ -58,11 +38,28 @@
         <div class="canvas" id="canvas">
             <!-- <div class="oval shape" id="drag"></div> -->
         </div>
+        <div id="capture-wrapper">
+            <button id="capture-button" onclick="takeShot()"><img src="assets/capture-icon.png" alt="camera-img"></button>
+        </div>
+        <div id="output-modal">
+
+        </div>
+        <div id="buttons">
+            <button id="show">
+              show
+            </button>
+            <button id="hide">
+              hide
+            </button>
+          </div>    
     </main>
 </body>
-<script src="js/dragElement.js"></script>
+<script src="https://unpkg.com/konva@7.0.3/konva.min.js"></script>
+<!-- <script src="js/dragElement.js"></script> -->
+<script src="js/html2canvas.js"></script>
+<script src="js/captureCanvas.js"></script>
 <script src="js/getSelection.js"></script>
 <script src="js/setInputType.js"></script>
 <script src="js/getLength.js"></script>
-<script src="js/create2dshape.js"></script>
+<script src="js/create2dshape copy.js"></script>
 </html>

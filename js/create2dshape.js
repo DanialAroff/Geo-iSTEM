@@ -1,9 +1,23 @@
 var idList = [];
 var newID = -1;
-var PIXEL = 37.7953;
+var PIXEL = 42;
+var canvas = document.getElementById('canvas');
+
+// get canvas computed size since it is undefined
+let properties = window.getComputedStyle(canvas, null);
+var canvasWidth = properties.getPropertyValue('width');
+var canvasHeight = properties.getPropertyValue('height');
+canvasWidth = parseFloat(canvasWidth, 10);
+canvasHeight = parseFloat(canvasHeight, 10);
+
+var stage = new Konva.Stage({
+    container: canvas,
+    width: canvasWidth,
+    height: canvasHeight,
+});
 
 function createShape(c) {
-    // creates new ID for new shape
+     // creates new ID for new shape
     while(true) {
       newID = "s" + Math.round(Math.random() * 10000);
       if (idList.includes(newID));
@@ -13,29 +27,66 @@ function createShape(c) {
       }
     }
 
-    var element = document.createElement("div");
-    element.id = newID;
+    var layer = new Konva.Layer();
 
     if (c == 'square') {
-      element.className = 'square shape';
-      element.style.width = (getSquareMeasurements() * PIXEL) + 'px';
-      element.style.height = (getSquareMeasurements() * PIXEL) + 'px';
-      element.style.backgroundColor = '#54a0ff';  
-    } else if (c == 'rectangle') {
-      element.className = 'rectangle shape';
-      element.style.width = (getRectangleMeasurements().width * PIXEL) + 'px';
-      element.style.height = (getRectangleMeasurements().height * PIXEL) + 'px';
-      element.style.backgroundColor = '#feca57';
-    } else if (c == 'triangle') {
-        element.className = 'triangle shape';
-    } else if (c == 'circle') {
-        element.className = 'circle shape';
-        element.style.width = (getCircleMeasurements() * PIXEL) + 'px';
-        element.style.height = (getCircleMeasurements() * PIXEL) + 'px';
-        element.style.borderRadius = '50%';
-        element.style.backgroundColor = '#ff6b6b';
-    }
+      var square = new Konva.Rect({
+        x: 0,
+        y: 0,
+        width: (getSquareMeasurements() * PIXEL),
+        height: (getSquareMeasurements() * PIXEL),
+        fill: '#54a0ff',
+        draggable: true,
+        id: newID,
+      });
 
-    document.getElementById("canvas").appendChild(element);
-    dragElement(element);
+      layer.add(square); 
+    } else if (c == 'rectangle') {
+      var rect = new Konva.Rect({
+        x: 0,
+        y: 0,
+        width: (getRectangleMeasurements().width * PIXEL),
+        height: (getRectangleMeasurements().height * PIXEL),
+        fill: '#feca57',
+        draggable: true,
+        id: newID,
+      });
+      layer.add(rect);
+    } else if (c == 'triangle') {
+        // #1dd1a1'
+    } else if (c == 'circle') {
+      var circle = new Konva.Circle({
+        x: stage.width() / 2,
+        y: stage.height() / 2,
+        radius: getCircleMeasurements() * PIXEL / 2,
+        fill: '#ff6b6b',
+        draggable: true,
+        id: newID,
+      });
+
+      layer.add(circle);
+    } else if (c == 'oval') {
+      var oval = new Konva.Ellipse({
+        x: stage.width() / 2,
+        y: stage.height() / 2,
+        radiusX: getOvalMeasurements().diameterX * PIXEL / 2,
+        radiusY: getOvalMeasurements().diameterY * PIXEL / 2,
+        fill: '#5f27cd',
+        draggable: true,
+        id: newID,
+      });
+
+      layer.add(oval); 
+    }
+    layer.on('mousedown', function () {
+        stage.container().style.cursor = 'move';
+      });
+
+    layer.on('mouseup', function () {
+    stage.container().style.cursor = 'default';
+    });
+
+    stage.add(layer);
+    // document.getElementById("canvas").appendChild(element);
+    // dragElement(element);
 }
