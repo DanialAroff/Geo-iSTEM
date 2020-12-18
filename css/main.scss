@@ -11,13 +11,13 @@ body {
     background: #FAFBFC;
     box-shadow: 0 0 16px rgba(0, 0, 0, 0.12);
     min-height: 100%;
-    min-width: 280px;
+    min-width: 300px;
     max-width: 380px;
     display: grid;
     row-gap: 20px;
     padding: 2em;
     box-sizing: border-box;
-    overflow-y: visible;
+    overflow-y: scroll;
 
     h1 {
         font-weight: 600;
@@ -47,10 +47,57 @@ body {
             border: 2px solid #F7CE21;
         }    
 
+        #shapes-2d-selector {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            row-gap: 10px;
+            column-gap: 10px;
+            justify-content: center;
+            
+            .shape-container {
+                position: relative;
+                width: 80px;
+                height: 80px;
+                margin: auto;
+                opacity: .7;
+                transition: .3s ease;
+
+                .tooltip-text {
+                    position: absolute;
+                    left: -20%;
+                    top: -12px;
+                    visibility: hidden;
+                    min-width: 100px;
+                    background-color: rgb(41, 41, 41);
+                    color: #FFF;
+                    text-align: center;
+                    padding: 5px;
+                    border-radius: 3px;
+                    z-index: 1;
+                    font-size: .7em;
+                }
+                
+                img {
+                    width: 100%;
+                    
+                }
+            }
+            .shape-container:hover .tooltip-text {
+                visibility: visible;
+            }
+            .shape-container:hover {
+                cursor: pointer;
+                opacity: 1;
+                transform: scale(1.15);
+            }
+            .shape-container:active {
+                transform: scale(.9);
+            }
+        }
+
         button {
-            position: absolute;
-            bottom: 18px;
-            right: 0px;
+            margin: 20px 0;
+            width: 100%;
             border: none;
             border-radius: 3px;
             padding: 10px 20px;
@@ -62,37 +109,6 @@ body {
         button:hover {
             background-color: rgb(253, 207, 4);
             box-shadow: 0 0 12px rgba($color: rgb(255, 209, 5), $alpha: 1.0);
-        }
-
-        .shape-inputs {
-            margin: 10px 0;
-            display: grid;
-            grid-template-columns: 5fr 1fr 1fr;
-            align-items: center;
-            font-size: .9em; 
-
-            label {
-                font-size: .95em;
-            }
-            input {
-                width: 40px;
-                font-size: 1em;
-                border: none;
-                border-bottom: 1px solid #191923;
-                background-color: #FAFBFC;
-                margin-left: auto;
-                outline: none;
-                text-align: right;
-            }
-            input:focus {
-                border-bottom: 2px solid #F7CE21;
-            }
-            span {
-                line-height: 40px;
-            }
-        }
-        .unselected {
-            display: none;
         }
     }
 }
@@ -120,6 +136,8 @@ main {
             opacity: .5;
 
             img {
+                outline: none;
+                user-select: none;
                 width: 90%;
                 transition: .2s ease-out;
             }
@@ -163,12 +181,11 @@ main {
     background-color: #fff;
     overflow: hidden;
 }
+.canvas > div {
+    box-sizing: border-box;
+}
 
 .shape {
     position: absolute;
     // background-color: red;
-}
-.shape:active {
-    cursor: move;
-    // border: 3px solid #5980ff;
 }
