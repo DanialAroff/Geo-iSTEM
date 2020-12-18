@@ -286,27 +286,6 @@ function createShape(c) {
 
 
 // add button event bindings
-// document.getElementById('show').addEventListener(
-//   'click',
-//   function () {
-//     selectedShapes.forEach(function(shape) {
-//       shape.show();
-//       layer.draw();
-//     })
-//   },
-//   false
-// );
-
-// document.getElementById('hide').addEventListener(
-//   'click',
-//   function () {
-//     selectedShapes.forEach(function(shape) {
-//       shape.hide();
-//       layer.draw();
-//     })
-//   },
-//   false
-// );
 document.getElementById('delete').addEventListener(
   'click',
   function () {
@@ -315,6 +294,22 @@ document.getElementById('delete').addEventListener(
       shape.destroy();
       layer.draw();
     })
+  },
+  false
+);
+
+document.body.addEventListener(
+  'keydown',
+  function (e) {
+    var key = e.keyCode || e.which;
+    // if (e.key === 'Delete')  as alternative
+    if (key == 46) {
+      selectedShapes.forEach(function(shape) {
+        tr.nodes([]);
+        shape.destroy();
+        layer.draw();
+      })
+    }
   },
   false
 );
