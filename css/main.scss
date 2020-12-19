@@ -8,6 +8,7 @@ body {
 }
 
 #shape-maker {
+    box-sizing: border-box;
     background: #FAFBFC;
     box-shadow: 0 0 16px rgba(0, 0, 0, 0.12);
     min-height: 100%;
@@ -17,7 +18,7 @@ body {
     row-gap: 20px;
     padding: 2em;
     box-sizing: border-box;
-    overflow-y: scroll;
+    overflow-y: auto;
     scroll-behavior: smooth;
 
     h1 {
@@ -33,20 +34,7 @@ body {
 
         label {
             font-weight: 500;
-        }
-        select, input {
-            box-sizing: border-box;
-            height: 25px;
-            margin: 10px 0;
-        }
-        select {
-            outline: none;
-            width: 100%;
-            border-radius: 3px;
-        }
-        select:focus {
-            border: 2px solid #F7CE21;
-        }    
+        }  
 
         #shapes-2d-selector {
             display: grid;
@@ -186,7 +174,41 @@ main {
     box-sizing: border-box;
 }
 
-.shape {
-    position: absolute;
-    // background-color: red;
+* {
+    scrollbar-width: thin;
+}
+
+*::-webkit-scrollbar {
+    width: 12px;
+}
+*::-webkit-scrollbar-thumb {
+    border-radius: 20px;
+}
+
+$breakpoint: 768px;
+
+@media (max-width: $breakpoint) {
+    body {
+        // width: 90%;
+        grid-template-columns: 1fr;
+        grid-template-rows: 3fr 1fr;
+    }
+    #shape-maker {
+        grid-area: 2 / 1;
+        // position: absolute;
+        top: 70%;
+        max-width: 768px;
+        border-radius: 10% 10% 0 0 ;
+        z-index: 1;
+        overflow-y: scroll;
+       
+    }
+    main {
+        // margin: 0 10px;
+        grid-area: 1 / 1;
+        // width: 80%;
+    }
+    #capture-wrapper {
+        display: none;
+    }
 }

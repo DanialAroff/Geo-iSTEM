@@ -10,6 +10,8 @@ body {
 }
 
 #shape-maker {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   background: #FAFBFC;
   -webkit-box-shadow: 0 0 16px rgba(0, 0, 0, 0.12);
           box-shadow: 0 0 16px rgba(0, 0, 0, 0.12);
@@ -20,9 +22,8 @@ body {
   display: grid;
   row-gap: 20px;
   padding: 2em;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  overflow-y: scroll;
+  box-sizing: border-box;
+  overflow-y: auto;
   scroll-behavior: smooth;
 }
 
@@ -42,23 +43,6 @@ body {
 
 #shape-maker .shapes-2d label {
   font-weight: 500;
-}
-
-#shape-maker .shapes-2d select, #shape-maker .shapes-2d input {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  height: 25px;
-  margin: 10px 0;
-}
-
-#shape-maker .shapes-2d select {
-  outline: none;
-  width: 100%;
-  border-radius: 3px;
-}
-
-#shape-maker .shapes-2d select:focus {
-  border: 2px solid #F7CE21;
 }
 
 #shape-maker .shapes-2d #shapes-2d-selector {
@@ -227,7 +211,42 @@ main #output-modal canvas {
           box-sizing: border-box;
 }
 
-.shape {
-  position: absolute;
+* {
+  scrollbar-width: thin;
+}
+
+*::-webkit-scrollbar {
+  width: 12px;
+}
+
+*::-webkit-scrollbar-thumb {
+  border-radius: 20px;
+}
+
+@media (max-width: 768px) {
+  body {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+    -ms-grid-rows: 3fr 1fr;
+        grid-template-rows: 3fr 1fr;
+  }
+  #shape-maker {
+    -ms-grid-row: 2;
+    -ms-grid-column: 1;
+    grid-area: 2 / 1;
+    top: 70%;
+    max-width: 768px;
+    border-radius: 10% 10% 0 0;
+    z-index: 1;
+    overflow-y: scroll;
+  }
+  main {
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+    grid-area: 1 / 1;
+  }
+  #capture-wrapper {
+    display: none;
+  }
 }
 /*# sourceMappingURL=main.css.map */
