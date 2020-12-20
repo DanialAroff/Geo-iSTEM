@@ -10,22 +10,11 @@
     <title>Geo iSTEM</title>
 </head>
 <body>
-    <aside id="shape-maker">
+    
+    <div id="shape-maker">
         <div id="expand"></div>
         <section class="shapes-2d">
             <h1 style="text-align: center;">Bentuk 2D</h1>
-            <!-- <label for="senaraibentuk2D">Nama Bentuk 2 Dimensi</label> -->
-            <!-- <select name="senaraibentuk2D" id="2d-selector">
-                <option value="square" selected>Segi Empat Sama</option>
-                <option value="rectangle">Segi Empat Tepat</option>
-                <option value="triangle">Segi Tiga</option>
-                <option value="circle">Bulatan</option>
-                <option value="oval">Oval</option>
-                <option value="rhombus">Rombus</option>
-                <option value="trapezium">Trapezium</option>
-                <option value="parallelogram">Segi Empat Selari</option>
-                <option value="polygon">Poligon</option>
-            </select> -->
             <div id="shapes-2d-selector">
                 <div class="shape-container" id="select-square" onclick="createShape('square')">
                     <img src="assets/shapes-nobackground/segi-empat-sama.png" alt="segi empat sama" draggable="false">
@@ -39,74 +28,123 @@
                         Segi Empat Tepat
                     </span>
                 </div>
-                <div class="shape-container" id="select-triangle" onclick="createShape('triangle')" draggable="false">
-                    <img src="assets/shapes-nobackground/segi-tiga.png" alt="segi tiga">
+                <div class="shape-container" id="select-triangle" onclick="createShape('triangle')">
+                    <img src="assets/shapes-nobackground/segi-tiga.png" alt="segi tiga"  draggable="false">
                     <span class="tooltip-text">
                         Segi Tiga
                     </span>
                 </div>
-                <div class="shape-container" id="select-circle" onclick="createShape('circle')" draggable="false">
+                <div class="shape-container" id="select-circle" onclick="createShape('circle')">
                     <img src="assets/shapes-nobackground/bulatan.png" alt="bulatan" draggable="false">
                     <span class="tooltip-text">
                         Bulatan
                     </span>
                 </div>
-                <div class="shape-container" id="select-oval" onclick="createShape('oval')" draggable="false">
-                    <img src="assets/shapes-nobackground/oval.png" alt="oval">
+                <div class="shape-container" id="select-oval" onclick="createShape('oval')">
+                    <img src="assets/shapes-nobackground/oval.png" alt="oval" draggable="false">
                     <span class="tooltip-text">
                         Oval
                     </span>
                 </div>
-                <div class="shape-container" id="select-rhombus" onclick="createShape('rhombus')" draggable="false">
-                    <img src="assets/shapes-nobackground/rombus2.png" alt="rombus">
+                <div class="shape-container" id="select-rhombus" onclick="createShape('rhombus')">
+                    <img src="assets/shapes-nobackground/rombus2.png" alt="rombus" draggable="false">
                     <span class="tooltip-text">
                         Rombus
                     </span>
                 </div>
-                <div class="shape-container" id="select-trapezium" onclick="createShape('trapezium')" draggable="false">
-                    <img src="assets/shapes-nobackground/trapezium.png" alt="trapezium">
+                <div class="shape-container" id="select-trapezium" onclick="createShape('trapezium')">
+                    <img src="assets/shapes-nobackground/trapezium.png" alt="trapezium" draggable="false">
                     <span class="tooltip-text">
                         Trapezium
                     </span>
                 </div>
-                <div class="shape-container" id="select-parellogram" onclick="createShape('parallelogram')" draggable="false">
-                    <img src="assets/shapes-nobackground/segi-empat-selari.png" alt="segi empat selari">
+                <div class="shape-container" id="select-parellogram" onclick="createShape('parallelogram')">
+                    <img src="assets/shapes-nobackground/segi-empat-selari.png" alt="segi empat selari" draggable="false">
                     <span class="tooltip-text">
                         Segi Empat Selari
                     </span>
                 </div>
+                <div class="shape-container" onclick="createPolygon(5)" >
+                    <img src="assets/shapes-nobackground/pentagon.png" alt="pentagon" draggable="false">
+                    <span class="tooltip-text">
+                        Pentagon
+                    </span>
+                </div>
+                <div class="shape-container" onclick="createPolygon(6)">
+                    <img src="assets/shapes-nobackground/hexagon.png" alt="hexagon"  draggable="false">
+                    <span class="tooltip-text">
+                        Hexagon
+                    </span>
+                </div>
+                <div class="shape-container" onclick="createPolygon(7)">
+                    <img src="assets/shapes-nobackground/heptagon.png" alt="heptagon"  draggable="false">
+                    <span class="tooltip-text">
+                        Heptagon
+                    </span>
+                </div>
+                <div class="shape-container" onclick="createPolygon(8)">
+                    <img src="assets/shapes-nobackground/octagon.png" alt="octagon"  draggable="false">
+                    <span class="tooltip-text">
+                        Octagon
+                    </span>
+                </div>
+                <div class="shape-container" onclick="createPolygon(9)">
+                    <img src="assets/shapes-nobackground/nonagon.png" alt="nonagon"  draggable="false">
+                    <span class="tooltip-text">
+                        Nonagon
+                    </span>
+                </div>
+                <div class="shape-container" onclick="createPolygon(10)">
+                    <img src="assets/shapes-nobackground/decagon.png" alt="decagon"  draggable="false">
+                    <span class="tooltip-text">
+                        Decagon
+                    </span>
+                </div>
+                <div class="shape-container" onclick="createPolygon(11)">
+                    <img src="assets/shapes-nobackground/hendecagon.png" alt="hendecagon"  draggable="false">
+                    <span class="tooltip-text">
+                        Hendecagon
+                    </span>
+                </div>
+                <div class="shape-container" onclick="createPolygon(12)">
+                    <img src="assets/shapes-nobackground/dodecagon.png" alt="dodecagon"  draggable="false">
+                    <span class="tooltip-text">
+                        Dodecagon
+                    </span>
+                </div>
             </div>
 
-            <button id="delete">
-                Padam Bentuk
-            </button>
+            
         </section>
         <section class="shapes-3d">
-            <h1 style="text-align: center;">Bentuk 3D</h1>
+            <!-- <h1 style="text-align: center;">Bentuk 3D</h1>
             <p>
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum quam consequuntur harum omnis eveniet quod rem iure expedita accusamus incidunt, cumque ex tenetur, porro nesciunt a nisi perferendis corporis officiis ipsam doloremque, molestiae quasi officia illum. Quam quasi fugiat similique exercitationem enim iste iusto earum, nobis numquam voluptatibus aperiam?
-            </p>
+            </p> -->
         </section>
-    </aside>
+    </div>
 
     <main>
+        <div id="button-wrapper">
+            <div class="button-container">
+                <button id="capture-button" onclick="takeShot()"><img src="assets/capture-icon2.png" alt="camera-img" tabindex="-1" draggable="false" oncontextmenu="return false;"></button>
+            </div>
+            <div class="button-container">
+                <button id="delete-button">
+                    <img src="assets/delete-icon.png" alt="delete">
+                </button>
+            </div>
+        </div>
+        
         <div class="canvas" id="canvas">
             
         </div>
         <div id="capture-wrapper">
-            <button id="capture-button" onclick="takeShot()"><img src="assets/capture-icon.png" alt="camera-img" tabindex="-1" draggable="false" oncontextmenu="return false;"></button>
+            
         </div>
         <div id="output-modal">
 
         </div>
-        <!-- <div id="buttons">
-            <button id="show">
-              show
-            </button>
-            <button id="hide">
-              hide
-            </button>
-        </div>     -->
     </main>
 </body>
 <script src="https://unpkg.com/konva@7.0.3/konva.min.js"></script>
@@ -116,5 +154,7 @@
 <script src="js/getSelection.js"></script>
 <script src="js/expandShapeMaker.js"></script>
 <script src="js/create2dshape copy.js"></script>
+<script src="js/getPolygonPoints.js"></script>
 <script src="js/changeStageSize.js"></script>
+<script src="js/confirmReload.js"></script>
 </html>

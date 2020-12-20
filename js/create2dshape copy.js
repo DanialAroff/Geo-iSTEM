@@ -266,7 +266,7 @@ function createShape(c) {
       shapes.push(para);
       layer.add(para);
     }
-
+ 
     stage.add(layer);
     
     // add strokes to each shape when it is hover over
@@ -284,9 +284,53 @@ function createShape(c) {
     });;
 }
 
+function createPolygon(sides) {
+  // creates new ID for new shape
+  while(true) {
+    newID = "s" + Math.round(Math.random() * 10000);
+    if (idList.includes(newID));
+    else {
+      idList.push(newID);
+      break;
+    }
+  }
+
+  const radius = 1.1 * PIXEL;
+  let points = getPolygonPoints(sides, radius);
+
+  let poly = new Konva.Line({
+    x: stage.width() / 2,
+    y: stage.height() / 2,
+    points: points,
+    fill: '#ffd105',
+    rotation: '180',
+    closed: true,
+    draggable: true,
+    id: newID,
+    name:'shape',
+  });
+  shapes.push(poly);
+  layer.add(poly);
+
+  stage.add(layer);
+    
+  // add strokes to each shape when it is hover over
+  shapes.forEach(function(shape) {
+    shape.on('mouseover', function () {
+    this.stroke('#191923');
+    this.strokeWidth(1.5);
+    layer.draw();
+    });
+    shape.on('mouseout', function () {
+      this.stroke('');
+      this.strokeWidth(0);
+      layer.draw();
+    });
+  });;
+}
 
 // add button event bindings
-document.getElementById('delete').addEventListener(
+document.getElementById('delete-button').addEventListener(
   'click',
   function () {
     selectedShapes.forEach(function(shape) {
