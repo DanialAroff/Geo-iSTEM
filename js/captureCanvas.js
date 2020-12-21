@@ -1,11 +1,15 @@
-
-
 function takeShot() {
     var modal = document.getElementById('output-modal');
-    var captureBtn = document.getElementById('capture-button');
 
     html2canvas(document.querySelector("#canvas")).then(canvas => {
+        let canvasToBeRemoved = modal.getElementsByTagName("canvas");
+        if (canvasToBeRemoved.length > 0) {
+            // modal.removeChild(modal.childNodes[0]);
+            canvasToBeRemoved[0].remove();
+        }
         modal.appendChild(canvas);
+        console.log(modal.innerHTML);
+        
     });
     
     modal.style.display = 'block';
