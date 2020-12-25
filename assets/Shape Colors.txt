@@ -9,3 +9,5 @@ Segi Empat Selari/Parellogram = #B53471
 Poligon = 
 
 https://stackblitz.com/edit/svg-polygon-generator?file=index.js
+
+
