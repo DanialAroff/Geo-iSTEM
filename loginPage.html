@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="assets/Icon3.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/index.css">
+    <title>Geo iSTEM</title>
+</head>
+<body>
+    <div class="header">
+        <div id="logo">
+            <img src="assets/Icon3.png" alt="">
+            <p>Geo iSTEM</p>
+        </div>  
+    </div>
+    <div id="background" >
+        <!-- <img src="assets/background1.png" alt="" id="background-image"> -->
+        <!-- <img src="assets/circle-background.png" alt="" id="shape1"> -->
+    </div>
+    <div id="glass"></div>
+    <div id="form-container">
+        <h1>Log Masuk</h1>
+        <form action="post">
+            <label for="nama">Nama</label>
+            <input type="text" name="nama" id="name">
+            <label for="kelas">Kelas</label>
+            <input type="text" name="kelas" id="class">
+            <button type="submit">Teruskan</button>
+        </form>    
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
+    <script>
+        gsap.from('#shape1', {duration: 3, ease: Bounce.easeOut, x: '0', y: '-400%'})
+
+        const tl = gsap.timeline({
+            defaults: {duration: 1.5}
+        });
+        // gsap.from('#background', {duration: 2.5,opacity: 0})
+        tl.from('#logo', {opacity: 0, x: '-40%'})
+        .from('#form-container', {duration: 1, opacity: 0, y: '-100px'})
+          
+    </script>
+</body>
+</html>

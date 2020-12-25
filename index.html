@@ -128,10 +128,40 @@
         <section class="shapes-3d">
             <h1 style="text-align: center;">Bentuk 3D</h1>
             <div id="shapes-3d-selector">
-                <div class="shape-container" onclick="createShape('square')">
-                    <img src="assets/shapes-nobackground/segi-empat-sama.png" alt="kiub" draggable="false">
+                <div class="shape-container" onclick="create3DShape('cube')">
+                    <img src="assets/3D Shapes/cube/cube-CG.png" alt="kubus" draggable="false">
                     <span class="tooltip-text">
-                        Kiub
+                        Kubus
+                    </span>
+                </div>
+                <div class="shape-container" onclick="create3DShape('cuboid')">
+                    <img src="assets/3D Shapes/cuboid/cuboid-ML.png" alt="kuboid" draggable="false">
+                    <span class="tooltip-text">
+                        Kuboid
+                    </span>
+                </div>
+                <div class="shape-container" onclick="create3DShape('cylinder')">
+                    <img src="assets/3D Shapes/cylinder/cylinder-PA.png" alt="silinder" draggable="false">
+                    <span class="tooltip-text">
+                        Silinder
+                    </span>
+                </div>
+                <div class="shape-container" onclick="create3DShape('sphere')">
+                    <img src="assets/3D Shapes/sphere/sphere-EB.png" alt="sfera" draggable="false">
+                    <span class="tooltip-text">
+                        Sfera
+                    </span>
+                </div>
+                <div class="shape-container" onclick="create3DShape('pyramid')">
+                    <img src="assets/3D Shapes/pyramid/pyramid-BY.png" alt="piramid" draggable="false">
+                    <span class="tooltip-text">
+                        Piramid
+                    </span>
+                </div>
+                <div class="shape-container" onclick="create3DShape('cone')">
+                    <img src="assets/3D Shapes/cone/cone-EF.png" alt="kon" draggable="false">
+                    <span class="tooltip-text">
+                        Kon
                     </span>
                 </div>
             </div>
@@ -150,13 +180,12 @@
             </div>
         </div>
         
-        <div id="canvas" oncontextmenu="return false;">
-            
-        </div>
+        <div id="canvas" oncontextmenu="return false;"></div>
     </main>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
     <script>
+        // animations when page is loaded
         const tl = gsap.timeline(); 
         gsap.defaults({
             ease: 'circle.out',
@@ -180,13 +209,25 @@
             promise.then(cleanup).catch(cleanup);
         }
     </script>
+    <script>
+        const shapeContainer = document.getElementsByClassName('shape-container');
+        Array.from(shapeContainer).forEach(function(container) {
+            container.addEventListener('click', buttonClickSound);
+        });
+        function buttonClickSound() {
+            var sound = new Audio('sounds/Button Click Sound.mp3');
+            sound.play();
+        }
+    </script>
 </body>
 <script src="https://unpkg.com/konva@7.0.3/konva.min.js"></script>
 <script src="js/html2canvas.js"></script>
 <script src="js/captureCanvas.js"></script>
-<script src="js/getSelection.js"></script>
 <script src="js/expandShapeMaker.js"></script>
-<script src="js/create2dshape.js"></script>
+<script src="js/create2dShape.js"></script>
+<script src="js/create3dShape.js"></script>
+<script src="js/makeSelection.js"></script>
+<script src="js/shapeEvents.js"></script>
 <script src="js/getPolygonPoints.js"></script>
 <script src="js/changeStageSize.js"></script>
 </html>
