@@ -1,6 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700;800;900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Capriola&display=swap");
 html {
   font-size: 65%;
 }
@@ -17,9 +16,9 @@ body {
 }
 
 h1 {
-  font-family: 'Capriola', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   font-weight: 700;
-  font-size: 2rem;
+  font-size: 2.5rem;
   color: #1d1d1d;
   margin: 2rem 0;
   text-transform: uppercase;
@@ -79,7 +78,10 @@ h1 {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  margin: 20px 0;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 30px 0;
 }
 
 #shape-maker .shapes-2d #shapes-2d-selector .shape-container:hover .tooltip-text, #shape-maker .shapes-2d #shapes-3d-selector .shape-container:hover .tooltip-text, #shape-maker .shapes-3d #shapes-2d-selector .shape-container:hover .tooltip-text, #shape-maker .shapes-3d #shapes-3d-selector .shape-container:hover .tooltip-text {
@@ -100,9 +102,9 @@ h1 {
 
 .shape-container {
   position: relative;
-  width: 70%;
+  width: 75%;
   margin: auto;
-  opacity: .7;
+  opacity: 1;
   -webkit-transition: .3s ease;
   transition: .3s ease;
 }
@@ -129,6 +131,16 @@ h1 {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
+}
+
+.shapes-3d .shape-container {
+  width: 60%;
+  margin: auto;
+  padding: 1em;
+}
+
+.shapes-3d .shape-container img {
+  margin: auto;
 }
 
 #button-wrapper {

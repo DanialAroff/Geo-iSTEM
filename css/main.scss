@@ -1,6 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap");
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700;800;900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Capriola&display=swap');
 
 $text-color: #191923;
 $primary-color: #F7CE21;
@@ -19,9 +18,9 @@ body {
 }
 
 h1 {
-    font-family: 'Capriola', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     font-weight: 700;
-    font-size: 2rem;
+    font-size: 2.5rem;
     color: rgb(29, 29, 29);
     margin: 2rem 0;
     text-transform: uppercase;
@@ -67,7 +66,8 @@ h1 {
             row-gap: 10px;
             column-gap: 10px;
             justify-content: center;
-            margin: 20px 0;
+            align-items: center;
+            margin: 30px 0;
             
             .shape-container:hover .tooltip-text {
                 visibility: visible;
@@ -86,9 +86,9 @@ h1 {
 
 .shape-container {
     position: relative;
-    width: 70%;
+    width: 75%;
     margin: auto;
-    opacity: .7;
+    opacity: 1;
     transition: .3s ease;
 
     .tooltip-text {
@@ -110,6 +110,18 @@ h1 {
         margin: auto;
         width: 100%;
         user-select: none;
+    }
+}
+.shapes-3d {
+    .shape-container {
+        width: 60%;
+        margin: auto;
+        padding: 1em;
+
+        img {
+            margin: auto;
+            // height: 100%;
+        }
     }
 }
 
