@@ -264,20 +264,14 @@ main {
     }
 }
 
-$breakpoint: 768px;
+$breakpoint: 767px;
 @media (max-width: $breakpoint) {
     html {
-        font-size: 54%;
+        font-size: 75%;
     }
-    body {
-        grid-template-columns: 1fr;
-        grid-template-rows: 8fr 1fr;
-    }
-    main {
-        grid-area: 1 / 1;
-    }
-    #capture-wrapper {
-        display: none;
+    .shapes-2d, .shapes-3d {
+        grid-template-columns: repeat(auto-fit, minmax(20px, 1fr));
+        row-gap: 5px;
     }
 }
 
