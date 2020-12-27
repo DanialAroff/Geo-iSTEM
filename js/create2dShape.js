@@ -170,6 +170,16 @@ function createShape(c) {
       this.strokeWidth(0);
       layer.draw();
     });
+    shape.on('contextmenu', function (e) {
+      const menu = document.getElementById('rmenu');
+      e.evt.preventDefault();
+      menu.className = '';
+      // menu.style.display = 'initial';
+      var containerRect = stage.container().getBoundingClientRect();
+      menu.style.top = containerRect.top + stage.getPointerPosition().y + 'px';
+      menu.style.left =  stage.getPointerPosition().x + 'px';
+      console.log(containerRect.left);
+    });
   });;
 }
 
@@ -215,5 +225,14 @@ function createPolygon(sides) {
       this.strokeWidth(0);
       layer.draw();
     });
-  });;
+    shape.on('contextmenu', function (e) {
+      const menu = document.getElementById('rmenu');
+      e.evt.preventDefault();
+      menu.className = '';
+      // menu.style.display = 'initial';
+      var containerRect = stage.container().getBoundingClientRect();
+      menu.style.top = containerRect.top + stage.getPointerPosition().y + 'px';
+      menu.style.left =  stage.getPointerPosition().x + 'px';
+    });
+  });
 }

@@ -115,7 +115,7 @@ function create3DShape(d) {
       }
     imageObj.src = './assets/3D Shapes/cone/cone-EF.png';
   }
-  
+
   stage.add(layer);
 
   // add strokes to each shape when it is hover over
@@ -123,12 +123,21 @@ function create3DShape(d) {
     shape.on('mouseover', function () {
       this.stroke('#191923');
       this.strokeWidth(1.5);
-      layer.draw();
+      layer.batchDraw();
     });
     shape.on('mouseout', function () {
       this.stroke('');
       this.strokeWidth(0);
-      layer.draw();
+      layer.batchDraw();
+    });
+    shape.on('contextmenu', function (e) {
+      const menu = document.getElementById('rmenu');
+      e.evt.preventDefault();
+      menu.className = '';
+      var containerRect = stage.container().getBoundingClientRect();
+      menu.style.top = containerRect.top + stage.getPointerPosition().y + 'px';
+      menu.style.left =  stage.getPointerPosition().x + 'px';
+      console.log(containerRect.left);
     });
   });
 }
