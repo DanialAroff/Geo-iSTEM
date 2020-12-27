@@ -30,25 +30,6 @@ h1 {
     text-align: center;
 }
 
-#shape-maker {
-    display: none;
-}
-
-
-.shapes-3d {
-    .shape-container {
-        width: 60%;
-        margin: auto;
-        padding: 1em;
-
-        img {
-            margin: auto;
-            // height: 100%;
-        }
-    }
-}
-
-
 #button-wrapper {
     position: absolute;
     top: 10px;
@@ -268,6 +249,9 @@ $breakpoint: 767px;
 @media (max-width: $breakpoint) {
     html {
         font-size: 75%;
+    }
+    .picker {
+        width: 45%;
     }
     .shapes-2d, .shapes-3d {
         grid-template-columns: repeat(auto-fit, minmax(20px, 1fr));

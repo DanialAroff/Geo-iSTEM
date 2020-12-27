@@ -27,20 +27,6 @@ h1 {
   text-align: center;
 }
 
-#shape-maker {
-  display: none;
-}
-
-.shapes-3d .shape-container {
-  width: 60%;
-  margin: auto;
-  padding: 1em;
-}
-
-.shapes-3d .shape-container img {
-  margin: auto;
-}
-
 #button-wrapper {
   position: absolute;
   top: 10px;
@@ -307,6 +293,9 @@ main {
 @media (max-width: 767px) {
   html {
     font-size: 75%;
+  }
+  .picker {
+    width: 45%;
   }
   .shapes-2d, .shapes-3d {
     -ms-grid-columns: (minmax(20px, 1fr))[auto-fit];
