@@ -1,5 +1,6 @@
 function takeShot() {
     var modal = document.getElementById('output-modal');
+    var closeButton = document.getElementById('modalclose-button');
 
     html2canvas(document.querySelector("#canvas")).then(canvas => {
         let canvasToBeRemoved = modal.getElementsByTagName("canvas");
@@ -19,4 +20,7 @@ function takeShot() {
             modal.style.display = 'none';
         }
     }
+    closeButton.addEventListener('click', function() {
+        modal.style.display = 'none';
+    })
 }

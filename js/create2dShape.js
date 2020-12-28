@@ -180,7 +180,7 @@ function createShape(c) {
       menu.style.left =  stage.getPointerPosition().x + 'px';
       console.log(containerRect.left);
     });
-  });;
+  });
 }
 
 function createPolygon(sides) {
