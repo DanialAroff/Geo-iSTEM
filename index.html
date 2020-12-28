@@ -9,7 +9,9 @@
     <title>Geo iSTEM</title>
 </head>
 <body>
-    <div id="output-modal"></div>
+    <div id="output-modal">
+        <button id="modalclose-button">Tutup</button>
+    </div>
     <div class="picker">
         <div class="picker-header">
             <h3>Bentuk</h3>
@@ -157,11 +159,11 @@
     <main>
         <div id="button-wrapper">
             <div class="button-container">
-                <button id="capture-button" onclick="takeShot()"><img src="assets/capture-icon2.png" alt="camera-img" tabindex="-1" draggable="false" oncontextmenu="return false;"></button>
+                <button id="capture-button" onclick="takeShot()"><img src="assets/capture-icon3.png" alt="camera-img" tabindex="-1" draggable="false" oncontextmenu="return false;"></button>
             </div>
             <div class="button-container">
                 <button id="delete-button">
-                    <img src="assets/delete-icon.png" alt="delete">
+                    <img src="assets/delete-icon2.png" alt="delete">
                 </button>
             </div>
         </div>
@@ -178,16 +180,6 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
     <script>
-        // animations when page is loaded
-        const tl = gsap.timeline(); 
-        gsap.defaults({
-            ease: 'circle.out',
-            duration: 0.9
-        });
-        gsap.from('#canvas', {y: '-50%', opacity: '0'})
-        gsap.from('.picker', {x: '-50%', opacity: '0'})
-        gsap.from('#button-wrapper', {duration: 1.5, opacity: '0'})
-
         const pendingOps = new Set();
 
         window.addEventListener('beforeunload', (event) => {
@@ -201,6 +193,17 @@
             const cleanup = () => pendingOps.delete(promise);
             promise.then(cleanup).catch(cleanup);
         }
+    </script>
+    <script>
+        // animations when page is loaded
+        const tl = gsap.timeline(); 
+        gsap.defaults({
+            ease: 'circle.out',
+            duration: 0.9
+        });
+        gsap.from('#canvas', {y: '-50%', opacity: '0'})
+        gsap.from('.picker', {x: '-50%', opacity: '0'})
+        gsap.from('#button-wrapper', {duration: 1.5, opacity: '0'})
     </script>
     <script>
         const shapeContainer = document.getElementsByClassName('shape-container');
@@ -217,15 +220,12 @@
         const pickerHeader = document.getElementsByClassName('picker-header');
         const pickerBtn = document.getElementsByClassName('picker-button');
         const picker2d = document.getElementsByClassName('2d-shapes-picker')
-        const picker3d = document.getElementsByClassName('3d-shapes-picker')
         pickerBtn[0].addEventListener('click', function() {
             if (picker2d[0].style.maxHeight) {
                 picker2d[0].style.maxHeight = null;
-                picker3d[0].style.maxHeight = null;
                 document.getElementById('arrow').style.transform = 'unset';
             } else {
-                picker2d[0].style.maxHeight = '300px';  
-                picker3d[0].style.maxHeight = '300px';  
+                picker2d[0].style.maxHeight = '300px';   
                 document.getElementById('arrow').style.transform = 'rotate(180deg)';
             }
         });
