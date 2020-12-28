@@ -43,7 +43,7 @@ h1 {
           flex-direction: column;
   border-radius: 5px;
   overflow: hidden;
-  background-color: #fff;
+  background: #292929;
   width: 10%;
   max-width: 50px;
   min-height: 100px;
@@ -71,16 +71,21 @@ h1 {
       -ms-flex-align: center;
           align-items: center;
   padding: .5em;
-  background-color: #fff;
+  background: #292929;
 }
 
 #button-wrapper .button-container button:hover > img {
-  -webkit-transform: scale(1.4);
-          transform: scale(1.4);
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+}
+
+#button-wrapper .button-container button:active > img {
+  -webkit-transform: scale(0.8);
+          transform: scale(0.8);
 }
 
 #button-wrapper .button-container #capture-button {
-  border-bottom: 1px solid rgba(25, 25, 35, 0.2);
+  border-bottom: 2px solid rgba(82, 82, 82, 0.5);
 }
 
 #button-wrapper .button-container img {
@@ -89,9 +94,9 @@ h1 {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
-  width: 80%;
-  -webkit-transition: .2s ease-out;
-  transition: .2s ease-out;
+  width: 60%;
+  -webkit-transition: .2s ease-in;
+  transition: .2s ease-in;
 }
 
 main {
@@ -131,6 +136,25 @@ main {
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
+}
+
+#output-modal #modalclose-button {
+  background: #292929;
+  border: none;
+  outline: none;
+  color: #fff;
+  font-size: .8rem;
+  padding: .5rem 1rem;
+  border-radius: 3px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 2;
+}
+
+#output-modal #modalclose-button:hover {
+  cursor: pointer;
+  text-decoration: underline;
 }
 
 * {
@@ -235,8 +259,8 @@ main {
 .picker section {
   max-height: 0;
   overflow-y: scroll;
-  -webkit-transition: max-height .4s ease-out;
-  transition: max-height .4s ease-out;
+  -webkit-transition: max-height .3s ease-out;
+  transition: max-height .3s ease-out;
   background: #fff;
 }
 
