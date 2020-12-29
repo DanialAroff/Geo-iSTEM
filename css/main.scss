@@ -113,7 +113,7 @@ main {
         left: 50%;
         transform: translate(-50%, -50%);
     }
-    #modalclose-button {
+    button {
         background: #292929;
         border: none;
         outline: none;
@@ -121,14 +121,22 @@ main {
         font-size: .8rem;
         padding: .5rem 1rem;
         border-radius: 3px;
-        position: absolute;
-        top: 10px;
-        right: 10px;
         z-index: 2;
+        position: absolute;
+
         &:hover {
             cursor: pointer;
             text-decoration: underline;
         }
+    }
+    #download-button {
+        top: 10px;
+        right: 80px;
+        margin-right: 10px;
+    }
+    #modalclose-button {
+        top: 10px;
+        right: 10px;
     }
 }
 
