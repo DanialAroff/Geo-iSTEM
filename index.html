@@ -3,42 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="assets/Icon2.png" type="image/x-icon">
+    <link rel="shortcut icon" href="assets/Icon3.png" type="image/x-icon">
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/main.css">
+    
     <title>Geo iSTEM</title>
 </head>
 <body>
-    <div id="output-modal">
-        <button id="download-button">Muat Turun</button>
-        <button id="modalclose-button">Tutup</button>
-    </div>
-    <div class="picker">
-        <div class="picker-header">
-            <h3>Bentuk</h3>
-            <button class="picker-button"><img src="assets/arrow-vertical-white.png" alt="" id="arrow"></button>
+    <!-- <div id="welcome">
+        <div>
+            <h1>Geo iSTEM</h1>
+            <button id="welcome-button">GO</button>
         </div>
-        <section class="2d-shapes-picker">
-            <div class="shapes-2d">
-                <div class="shape-container" onclick="createShape('square')">
+    </div> -->
+    <div id="output-modal"></div>
+    <div id="shape-maker">
+        <div id="expand">
+            <div></div>    
+        </div>
+        <!-- <div id="appname">
+            <h1>Geo-iSTEM</h1>
+        </div> -->
+        <section class="shapes-2d">
+            <h1>Bentuk 2D</h1>
+            <div id="shapes-2d-selector">
+                <div class="shape-container" id="select-square" onclick="createShape('square')">
                     <img src="assets/shapes-nobackground/segi-empat-sama.png" alt="segi empat sama" draggable="false">
                     <span class="tooltip-text">
                         Segi Empat Sama
                     </span>
                 </div>
-                <div class="shape-container" onclick="createShape('rectangle')">
+                <div class="shape-container" id="select-rectangle" onclick="createShape('rectangle')">
                     <img src="assets/shapes-nobackground/segi-empat-tepat.png" alt="segi empat tepat" draggable="false">
                     <span class="tooltip-text">
                         Segi Empat Tepat
                     </span>
                 </div>
-                <div class="shape-container" onclick="createShape('triangle')">
+                <div class="shape-container" id="select-triangle" onclick="createShape('triangle')">
                     <img src="assets/shapes-nobackground/segi-tiga.png" alt="segi tiga"  draggable="false">
                     <span class="tooltip-text">
                         Segi Tiga
                     </span>
                 </div>
-                <div class="shape-container" onclick="createShape('circle')">
+                <div class="shape-container" id="select-circle" onclick="createShape('circle')">
                     <img src="assets/shapes-nobackground/bulatan.png" alt="bulatan" draggable="false">
                     <span class="tooltip-text">
                         Bulatan
@@ -115,8 +122,12 @@
                     <span class="tooltip-text">
                         Dodecagon
                     </span>
-                </div> 
-                
+                </div>
+            </div>
+        </section>
+        <section class="shapes-3d">
+            <h1 style="text-align: center;">Bentuk 3D</h1>
+            <div id="shapes-3d-selector">
                 <div class="shape-container" onclick="create3DShape('cube')">
                     <img src="assets/3D Shapes/cube/cube-CG.png" alt="kubus" draggable="false">
                     <span class="tooltip-text">
@@ -160,16 +171,18 @@
     <main>
         <div id="button-wrapper">
             <div class="button-container">
-                <button id="capture-button" onclick="takeShot()"><img src="assets/capture-icon3.png" alt="camera-img" tabindex="-1" draggable="false" oncontextmenu="return false;"></button>
+                <button id="capture-button" onclick="takeShot()"><img src="assets/capture-icon2.png" alt="camera-img" tabindex="-1" draggable="false" oncontextmenu="return false;"></button>
             </div>
             <div class="button-container">
                 <button id="delete-button">
-                    <img src="assets/delete-icon2.png" alt="delete">
+                    <img src="assets/delete-icon.png" alt="delete">
                 </button>
             </div>
         </div>
         
-        <div id="canvas" oncontextmenu="return false;"></div>
+        <div id="canvas" oncontextmenu="return false;">
+           
+        </div>
         <div class="hide" id="rmenu">
             <ul>
                 <li onclick="moveUp()">Gerak ke Depan</li>
@@ -181,6 +194,16 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
     <script>
+        // animations when page is loaded
+        const tl = gsap.timeline(); 
+        gsap.defaults({
+            ease: 'circle.out',
+            duration: 0.9
+        });
+        gsap.from('#canvas', {y: '-50%', opacity: '0'})
+        gsap.from('#shape-maker', {x: '-50%', opacity: '0'})
+        gsap.from('#button-wrapper', {duration: 1.5, opacity: '0'})
+
         const pendingOps = new Set();
 
         window.addEventListener('beforeunload', (event) => {
@@ -196,17 +219,6 @@
         }
     </script>
     <script>
-        // animations when page is loaded
-        const tl = gsap.timeline(); 
-        gsap.defaults({
-            ease: 'circle.out',
-            duration: 0.9
-        });
-        gsap.from('#canvas', {y: '-50%', opacity: '0'})
-        gsap.from('.picker', {x: '-50%', opacity: '0'})
-        gsap.from('#button-wrapper', {duration: 1.5, opacity: '0'})
-    </script>
-    <script>
         const shapeContainer = document.getElementsByClassName('shape-container');
         Array.from(shapeContainer).forEach(function(container) {
             container.addEventListener('click', buttonClickSound);
@@ -216,28 +228,14 @@
             sound.play();
         }
     </script>
-    <script>
-        const pickerContainer = document.getElementsByClassName('picker');
-        const pickerHeader = document.getElementsByClassName('picker-header');
-        const pickerBtn = document.getElementsByClassName('picker-button');
-        const picker2d = document.getElementsByClassName('2d-shapes-picker')
-        pickerBtn[0].addEventListener('click', function() {
-            if (picker2d[0].style.maxHeight) {
-                picker2d[0].style.maxHeight = null;
-                document.getElementById('arrow').style.transform = 'unset';
-            } else {
-                picker2d[0].style.maxHeight = '300px';   
-                document.getElementById('arrow').style.transform = 'rotate(180deg)';
-            }
-        });
-    </script>
 </body>
 <script src="https://unpkg.com/konva@7.0.3/konva.min.js"></script>
 <script src="js/html2canvas.js"></script>
 <script src="js/captureCanvas.js"></script>
+<script src="js/expandShapeMaker.js"></script>
 <script src="js/create2dShape.js"></script>
 <script src="js/create3dShape.js"></script>
-<script src="js/dragHTML.js"></script>
+
 <script src="js/makeSelection.js"></script>
 <script src="js/shapeEvents.js"></script>
 <script src="js/getPolygonPoints.js"></script>
