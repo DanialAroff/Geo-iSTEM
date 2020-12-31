@@ -2,7 +2,6 @@ var picker = document.querySelector('.picker');
 var container = document.body;
 
 const childOfPicker = picker.childNodes;
-// const header = document.querySelector('.picker-header');
 const headerTxt = childOfPicker[0];
 const header = childOfPicker[1];
 

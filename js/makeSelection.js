@@ -4,7 +4,7 @@ layer.add(tr);
 
 // add a new feature, lets add ability to draw selection rectangle
 var selectionRectangle = new Konva.Rect({
-  fill: 'rgba(247, 206, 33, .5)',
+  fill: 'rgba(75, 207, 250, .3)',
 });
 layer.add(selectionRectangle);
 
