@@ -4,6 +4,9 @@ let capturedCanvas;
 let modal = document.getElementById('output-modal');
 
 function takeShot() {
+    // saves layer in local storage
+    saveStage();
+
     // clear selection first
     tr.nodes([]);
     selectedShapes = [];

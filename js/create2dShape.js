@@ -17,10 +17,17 @@ var stage = new Konva.Stage({
     width: canvasWidth,
     height: canvasHeight,
 });
-
 var layer = new Konva.Layer();
-stage.add(layer);
 
+let stagejson = localStorage.getItem('stage');
+if (stagejson) {
+  stage = Konva.Node.create(stagejson, canvas);
+  layer = stage.getLayers()[0];
+  console.log(layer);
+  shapes = stage.find('.shape')
+} else {
+  stage.add(layer);
+}
 
 function createShape(c) {
   // creates new ID for new shape
@@ -155,32 +162,10 @@ function createShape(c) {
       shapes.push(para);
       layer.add(para);
     }
- 
-  stage.add(layer);
   
-  // add strokes to each shape when it is hover over
-  shapes.forEach(function(shape) {
-    shape.on('mouseover', function () {
-      this.stroke('#191923');
-      this.strokeWidth(1.5);
-      layer.draw();
-    });
-    shape.on('mouseout', function () {
-      this.stroke('');
-      this.strokeWidth(0);
-      layer.draw();
-    });
-    shape.on('contextmenu', function (e) {
-      const menu = document.getElementById('rmenu');
-      e.evt.preventDefault();
-      menu.className = '';
-      // menu.style.display = 'initial';
-      var containerRect = stage.container().getBoundingClientRect();
-      menu.style.top = containerRect.top + stage.getPointerPosition().y + 'px';
-      menu.style.left =  stage.getPointerPosition().x + 'px';
-      console.log(containerRect.left);
-    });
-  });
+  putEventBindings(shapes);
+
+  stage.add(layer);
 }
 
 function createPolygon(sides) {
