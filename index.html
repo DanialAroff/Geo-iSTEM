@@ -314,17 +314,17 @@
                 arrow[0].style.transform = 'rotate(180deg)';
             }
         });
-        pickerBtn[0].addEventListener('click', function() {
-            if (colorContainerMain[0].style.maxWidth) {
-                colorContainerMain[0].style.maxWidth = null;
-                // colorContainerMain[0].style.padding = null;
-                arrow[0].style.transform = 'unset';
-            } else {
-                colorContainerMain[0].style.maxWidth = '250px';
-                // colorContainerMain[0].style.padding = '1rem';
-                arrow[0].style.transform = 'rotate(180deg)';
-            }
-        });
+        // pickerBtn[0].addEventListener('click', function() {
+        //     if (colorContainerMain[0].style.maxWidth) {
+        //         colorContainerMain[0].style.maxWidth = null;
+        //         // colorContainerMain[0].style.padding = null;
+        //         arrow[0].style.transform = 'unset';
+        //     } else {
+        //         colorContainerMain[0].style.maxWidth = '250px';
+        //         // colorContainerMain[0].style.padding = '1rem';
+        //         arrow[0].style.transform = 'rotate(180deg)';
+        //     }
+        // });
 
     </script>
 </body>
@@ -338,5 +338,6 @@
 <script src="js/shapeEvents.js"></script>
 <script src="js/getPolygonPoints.js"></script>
 <script src="js/changeStageSize.js"></script>
+<script src="js/saveStage.js"></script>
 
 </html>
