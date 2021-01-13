@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="assets/Icon2.png" type="image/x-icon">
+    <link rel="shortcut icon" href="assets/Icon1.png" type="image/x-icon">
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/main.css">
     <title>Geo iSTEM</title>
@@ -89,16 +89,20 @@
             </div>
         </div>
     </div> -->
-    <div id="output-modal">
+    <!-- <div id="output-modal">
         <button id="download-button">Muat Turun</button>
         <button id="modalclose-button">Tutup</button>
-    </div>
+    </div> -->
+   
     <div class="picker">
         <div class="picker-header">
             <h3>Bentuk</h3>
             <button class="picker-button"><img src="assets/arrow-vertical-white.png" alt="" class="arrow"></button>
         </div>
         <section class="2d-shapes-picker">
+            <span class="tooltip-whatshape">
+                Segi Empat Sama
+            </span>
             <div class="shapes-2d">
                 <div class="shape-container" onclick="createShape('square')">
                     <img src="assets/shapes-nobackground/segi-empat-sama.png" alt="segi empat sama" draggable="false">
@@ -236,13 +240,42 @@
             </div>
         </section>
     </div>
-    
 
+    <div class="instruction-opener">
+        <button onclick="openInstructions()"><img src="assets/" alt="">Arahan</button>
+    </div>
+
+    <div class="instructions-container">
+        <div class="instructions-card">
+            <button class="close-instructions-button" onclick="closeInstructions()">Tutup</button>
+            <div class="instructions-header">
+                <h1>ARAHAN</h1>
+                <p>Geo iSTEM mengandungi beberapa langkah yang perlu diikuti.</p>
+            </div>
+            <div class="instructions-parts">
+                <div class="instructions part-1">
+                    <h2>Langkah 1</h2>
+                    <p>Pelajar perlu membuka menu yang mempunyai pilihan bentuk dengan menekan simbol <img src="assets/arrow-vertical-black.png" alt="anak panah ke bawah"> .</p>
+                    <img src="assets/unopened menu.PNG" alt="">
+                    <p>Pelajar boleh menutup menu ini dengan menekan simbol yang sama sekali lagi.</p>
+                </div>
+                <div class="instructions part-2">
+                    <h2>Langkah 2</h2>
+                    <p>Pelajar perlu memilih mana-mana bentuk yang terdapat di dalam menu dan klik untuk mendapatkan output.</p>
+                    <img src="assets/opened menu.PNG" alt="menu terbuka">
+                </div>
+            </div>
+        </div>
+    </div>
+    
     <main>
         <div id="button-wrapper">
             <div class="button-container">
-                <button id="capture-button" onclick="takeShot()"><img src="assets/capture-icon3.png" alt="camera-img" tabindex="-1" draggable="false" oncontextmenu="return false;"></button>
+                <button id="download-button"><img src="assets/download-icon-02.png" alt="camera-img" tabindex="-1" draggable="false" oncontextmenu="return false;"></button>
             </div>
+            <!-- <div class="button-container">
+                <button id="capture-button" onclick="takeShot()"><img src="assets/capture-icon3.png" alt="camera-img" tabindex="-1" draggable="false" oncontextmenu="return false;"></button>
+            </div> -->
             <div class="button-container">
                 <button id="delete-button">
                     <img src="assets/delete-icon2.png" alt="delete">
@@ -255,13 +288,14 @@
             <ul>
                 <li onclick="moveUp()">Gerak ke Depan</li>
                 <li onclick="moveDown()">Gerak ke Belakang</li>
-                <li onclick="deleteShape()">Padam</li>
+                <li onclick="deleteShape()">Padam Bentuk<span>Delete</span></li>
             </ul>
         </div>
     </main>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
     <script>
+        // supposedly gives warning to user when leaving the page
         const pendingOps = new Set();
 
         window.addEventListener('beforeunload', (event) => {
@@ -310,7 +344,7 @@
                 picker2d[0].style.maxHeight = null;
                 arrow[0].style.transform = 'unset';
             } else {
-                picker2d[0].style.maxHeight = '300px';   
+                picker2d[0].style.maxHeight = '360px';   
                 arrow[0].style.transform = 'rotate(180deg)';
             }
         });
@@ -339,5 +373,6 @@
 <script src="js/getPolygonPoints.js"></script>
 <script src="js/changeStageSize.js"></script>
 <script src="js/saveStage.js"></script>
+<script src="js/instructionsOp.js"></script>
 
 </html>
