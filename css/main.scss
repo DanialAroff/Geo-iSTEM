@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap");
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;300;400;500;600;700&display=swap');
 
 $text-color: #292929;
 $primary-color: #F7CE21;
@@ -90,7 +91,7 @@ main {
     transform: translate(-50%, -50%);
     width: 95%;
     height: 90%;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
     background-color: #fff;
 }
 
@@ -159,6 +160,7 @@ main {
     font-weight: 500;
     border-radius: 3px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    width: 250px;
 
     ul {
         list-style: none;
@@ -166,6 +168,12 @@ main {
         li {
             margin: .5rem 0;
             padding: .5rem 1.5rem;
+
+            span {
+                color: #adadad;
+                position: absolute;
+                right: 1.5rem;
+            }
         }
         li:last-child{
             border-top: 1px solid #ecdd01;
@@ -183,6 +191,7 @@ main {
     top: 20px;
     left: 20px;
     background: #292929;
+    background: #22223B;
     color: #fff;
     z-index: 1;
     min-width: 120px;
@@ -196,7 +205,7 @@ main {
     
     .picker-header {
         font-weight: 600;
-        font-size: .9rem;
+        font-size: 1rem;
         display: flex;
         align-items: center;
         user-select: none;
@@ -224,6 +233,7 @@ main {
         overflow-y: scroll;
         transition: max-height .3s ease-out;
         background: #fff;
+
         .shapes-2d, .shapes-3d {
             margin: .5rem .5rem;
             overflow: hidden;
@@ -241,7 +251,7 @@ main {
                 .tooltip-text {
                     position: absolute;
                     left: -10%;
-                    top: -12px;
+                    bottom: 0px;
                     visibility: hidden;
                     min-width: 100px;
                     background-color: rgb(41, 41, 41);
@@ -250,9 +260,15 @@ main {
                     padding: 5px;
                     border-radius: 3px;
                     z-index: 3;
-                    font-size: 1em;
+                    font-size: .8rem;
                 }
                 
+                &:hover > span {
+                    visibility: visible;
+                    z-index:555;
+                    // position: relative;
+                }
+
                 img {
                     margin: auto;
                     width: 100%;
@@ -261,6 +277,7 @@ main {
 
                     &:hover {
                         transform: scale(1.3);
+
                     }
                 }
                 
@@ -269,6 +286,7 @@ main {
         
     }
 }
+
 .color-picker {
     position: absolute;
     background: #292929;
@@ -354,6 +372,132 @@ main {
     }
 }
 
+.instruction-opener {
+    box-sizing: border-box;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 15%;
+    border-radius: 0 0 10px 10px;
+    overflow: hidden;
+    z-index: 30;
+    
+    button {
+        width: 100%;
+        padding: 0.25rem 1rem;
+        border: 1px solid #22223B;
+        background: #22223B;
+        color: #fff;
+        border-radius: 0;
+        
+        &:hover {
+            cursor: pointer;
+        }
+    }
+}
+
+$instruction-width: 90%;
+$instruction-height: ($instruction-width);
+
+.instructions-container {
+    position: absolute;
+    backdrop-filter: blur(6px);
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 99;
+    top: -100%;
+}
+
+.instructions-card {
+    position: relative;
+    box-sizing: border-box;
+    padding: 2rem 3rem;
+    // position: absolute;
+    // top: 50%;
+    // left: 50%;
+    // transform: translate(-50%, -50%);
+    display: grid;
+    grid-template-rows: 1fr 3fr 1fr;
+    background: #FFF;
+    width: $instruction-width;
+    height: $instruction-height;
+    border-radius: 15px;
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.12);
+    max-width: 1500px;
+    max-height: 800px;
+
+    .close-instructions-button {
+        position: absolute;
+        top: 2rem;
+        right: 3rem;
+        border: none;
+        background: transparent;
+        font-size: 1rem;
+        outline: none;
+
+        &:hover {
+            cursor: pointer;
+            text-decoration: underline;
+            color: rgb(221, 21, 21);
+        }
+    }
+
+    .instructions-header {
+        margin-bottom: 1rem;
+
+        h1 {
+            font-family: 'Roboto Slab', 'Arial';
+            font-size: 2rem;
+            font-weight: 600;
+        } 
+        p {
+            font-size: 1rem;
+            font-weight: 300;
+        }
+        p, h1 {
+            text-align: start;
+            margin: 0 0 1rem 0;
+        }
+    }
+
+    .instructions-parts {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 3rem;
+
+        .instructions {
+            h2 {
+                text-align: start;
+                font-weight: 600;
+                margin: 0;
+                margin-bottom: 1rem;
+            }
+            p {
+                font-weight: 300;
+                margin-bottom: 1rem;
+                line-height: 1.3em;
+                
+                img {
+                    width: 1rem;
+                    border: none;
+                    opacity: 0.8;
+                    margin: 0;
+                }
+            }
+
+            img {
+                width: 100%;
+                border: 1px solid #000;
+                margin-bottom: 1rem;
+            }
+        }
+    }
+}
+
 $breakpoint: 767px;
 @media (max-width: $breakpoint) {
     html {
@@ -367,5 +511,3 @@ $breakpoint: 767px;
         row-gap: 5px;
     }
 }
-
-

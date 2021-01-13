@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;300;400;500;600;700&display=swap");
 html {
   font-size: 65%;
   font-size: 16px;
@@ -112,8 +113,8 @@ main {
           transform: translate(-50%, -50%);
   width: 95%;
   height: 90%;
-  -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-          box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
   background-color: #fff;
 }
 
@@ -190,6 +191,7 @@ main {
   border-radius: 3px;
   -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
           box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  width: 250px;
 }
 
 #rmenu ul {
@@ -199,6 +201,12 @@ main {
 #rmenu ul li {
   margin: .5rem 0;
   padding: .5rem 1.5rem;
+}
+
+#rmenu ul li span {
+  color: #adadad;
+  position: absolute;
+  right: 1.5rem;
 }
 
 #rmenu ul li:last-child {
@@ -216,6 +224,7 @@ main {
   top: 20px;
   left: 20px;
   background: #292929;
+  background: #22223B;
   color: #fff;
   z-index: 1;
   min-width: 120px;
@@ -231,7 +240,7 @@ main {
 
 .picker .picker-header {
   font-weight: 600;
-  font-size: .9rem;
+  font-size: 1rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -293,7 +302,7 @@ main {
 .picker section .shapes-2d .shape-container .tooltip-text, .picker section .shapes-3d .shape-container .tooltip-text {
   position: absolute;
   left: -10%;
-  top: -12px;
+  bottom: 0px;
   visibility: hidden;
   min-width: 100px;
   background-color: #292929;
@@ -302,7 +311,12 @@ main {
   padding: 5px;
   border-radius: 3px;
   z-index: 3;
-  font-size: 1em;
+  font-size: .8rem;
+}
+
+.picker section .shapes-2d .shape-container:hover > span, .picker section .shapes-3d .shape-container:hover > span {
+  visibility: visible;
+  z-index: 555;
 }
 
 .picker section .shapes-2d .shape-container img, .picker section .shapes-3d .shape-container img {
@@ -435,6 +449,142 @@ main {
 
 .color-picker .color-container-main .color-container:focus {
   background: rgba(224, 224, 224, 0.6);
+}
+
+.instruction-opener {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  width: 15%;
+  border-radius: 0 0 10px 10px;
+  overflow: hidden;
+  z-index: 30;
+}
+
+.instruction-opener button {
+  width: 100%;
+  padding: 0.25rem 1rem;
+  border: 1px solid #22223B;
+  background: #22223B;
+  color: #fff;
+  border-radius: 0;
+}
+
+.instruction-opener button:hover {
+  cursor: pointer;
+}
+
+.instructions-container {
+  position: absolute;
+  -webkit-backdrop-filter: blur(6px);
+          backdrop-filter: blur(6px);
+  width: 100vw;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  z-index: 99;
+  top: -100%;
+}
+
+.instructions-card {
+  position: relative;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 2rem 3rem;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: 1fr 3fr 1fr;
+      grid-template-rows: 1fr 3fr 1fr;
+  background: #FFF;
+  width: 90%;
+  height: 90%;
+  border-radius: 15px;
+  -webkit-box-shadow: 0 0 40px rgba(0, 0, 0, 0.12);
+          box-shadow: 0 0 40px rgba(0, 0, 0, 0.12);
+  max-width: 1500px;
+  max-height: 800px;
+}
+
+.instructions-card .close-instructions-button {
+  position: absolute;
+  top: 2rem;
+  right: 3rem;
+  border: none;
+  background: transparent;
+  font-size: 1rem;
+  outline: none;
+}
+
+.instructions-card .close-instructions-button:hover {
+  cursor: pointer;
+  text-decoration: underline;
+  color: #dd1515;
+}
+
+.instructions-card .instructions-header {
+  margin-bottom: 1rem;
+}
+
+.instructions-card .instructions-header h1 {
+  font-family: 'Roboto Slab', 'Arial';
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.instructions-card .instructions-header p {
+  font-size: 1rem;
+  font-weight: 300;
+}
+
+.instructions-card .instructions-header p, .instructions-card .instructions-header h1 {
+  text-align: start;
+  margin: 0 0 1rem 0;
+}
+
+.instructions-card .instructions-parts {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  -webkit-column-gap: 3rem;
+          column-gap: 3rem;
+}
+
+.instructions-card .instructions-parts .instructions h2 {
+  text-align: start;
+  font-weight: 600;
+  margin: 0;
+  margin-bottom: 1rem;
+}
+
+.instructions-card .instructions-parts .instructions p {
+  font-weight: 300;
+  margin-bottom: 1rem;
+  line-height: 1.3em;
+}
+
+.instructions-card .instructions-parts .instructions p img {
+  width: 1rem;
+  border: none;
+  opacity: 0.8;
+  margin: 0;
+}
+
+.instructions-card .instructions-parts .instructions img {
+  width: 100%;
+  border: 1px solid #000;
+  margin-bottom: 1rem;
 }
 
 @media (max-width: 767px) {
