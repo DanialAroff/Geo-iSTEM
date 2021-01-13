@@ -1,6 +1,6 @@
 var closeButton = document.getElementById('modalclose-button');
 var downloadButton = document.getElementById('download-button');
-let capturedCanvas;
+// let capturedCanvas;
 let modal = document.getElementById('output-modal');
 
 function takeShot() {
@@ -36,18 +36,25 @@ function takeShot() {
     return;
 }
 
-closeButton.addEventListener('click', function() {
-    modal.style.display = 'none';
-});
+// closeButton.addEventListener('click', function() {
+//     modal.style.display = 'none';
+// });
 
 downloadButton.addEventListener('click', function() {
-    let image = capturedCanvas.toDataURL('image/png');
+    // clear selection first
+    tr.nodes([]);
+    selectedShapes = [];
+    layer.draw();
 
-    let link = document.createElement('a');
-    link.href = image;
-    link.download = 'geo.png';
-    document.body.append(link);
-    link.click();
-    image = "";
-    document.body.removeChild(link);
+    html2canvas(document.querySelector("#canvas")).then(canvas => {
+        let image = canvas.toDataURL('image/png');
+
+        let link = document.createElement('a');
+        link.href = image;
+        link.download = 'geo.png';
+        document.body.append(link);
+        link.click();
+        image = "";
+        document.body.removeChild(link);
+    });
 });
