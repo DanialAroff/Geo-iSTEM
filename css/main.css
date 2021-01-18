@@ -602,4 +602,15 @@ main {
     row-gap: 5px;
   }
 }
+
+.copyright {
+  font-size: 10px;
+  font-weight: 600;
+  color: #22223B;
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
 /*# sourceMappingURL=main.css.map */
