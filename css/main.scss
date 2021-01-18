@@ -57,8 +57,8 @@ h1 {
             padding: .5em;
             background: #292929;
         }
-        button:hover > img{
-            transform: scale(1.2);
+        button:hover > img {
+            transform: scale(1.4);
         }
         button:active > img{
             transform: scale(.8);
@@ -69,11 +69,10 @@ h1 {
         img {
             outline: none;
             user-select: none;
-            width: 60%;
-            transition: .2s ease-in;
+            width: 50%;
+            transition: .2s ease-out;
         }
     }
-    
 }
 
 main {
@@ -90,6 +89,11 @@ main {
     height: 90%;
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
     background-color: #fff;
+}
+
+.form-container {
+    position: relative;
+    width: 100%;
 }
 
 #output-modal {
@@ -185,8 +189,8 @@ main {
 
 .picker {
     position: absolute;
-    top: 20px;
-    left: 20px;
+    top: 10px;
+    left: 70px;
     background: #292929;
     background: #22223B;
     color: #fff;

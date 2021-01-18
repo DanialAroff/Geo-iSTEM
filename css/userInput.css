@@ -1,0 +1,26 @@
+#form-container {
+    position: absolute;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+    width: 350px;
+    z-index: 999;
+}
+#form-container div:first-child {
+    margin-bottom: 1rem;
+}
+#form-container label {
+    text-transform: uppercase;
+}
+#form-container input {
+    border: 1px solid transparent;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.418);
+    margin-left: auto;
+    outline: none;
+    width: 300px;
+    background: transparent;
+}
+#form-container input:focus {
+    border: 1px solid #01BAEF;
+}

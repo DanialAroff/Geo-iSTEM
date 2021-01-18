@@ -73,8 +73,8 @@ h1 {
 }
 
 #button-wrapper .button-container button:hover > img {
-  -webkit-transform: scale(1.2);
-          transform: scale(1.2);
+  -webkit-transform: scale(1.4);
+          transform: scale(1.4);
 }
 
 #button-wrapper .button-container button:active > img {
@@ -92,9 +92,9 @@ h1 {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
-  width: 60%;
-  -webkit-transition: .2s ease-in;
-  transition: .2s ease-in;
+  width: 50%;
+  -webkit-transition: .2s ease-out;
+  transition: .2s ease-out;
 }
 
 main {
@@ -113,6 +113,11 @@ main {
   -webkit-box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
           box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
   background-color: #fff;
+}
+
+.form-container {
+  position: relative;
+  width: 100%;
 }
 
 #output-modal {
@@ -218,8 +223,8 @@ main {
 
 .picker {
   position: absolute;
-  top: 20px;
-  left: 20px;
+  top: 10px;
+  left: 70px;
   background: #292929;
   background: #22223B;
   color: #fff;
